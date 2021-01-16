@@ -1,7 +1,7 @@
 import sqlite3
 import math
 import re
-conn = sqlite3.connect('F:/Users/18210/Documents/Prepar3D v4 Add-ons/FSLabs/NavData/CHN2014001.rom')
+conn = sqlite3.connect('rom')
 c = conn.cursor()
 def getDegree(latA, lonA, latB, lonB): 
     radLatA = math.radians(latA) 
@@ -27,7 +27,7 @@ def getlatlonbyraddis(lat,lon,deg,dis):
     resl.append(math.degrees(lon2))
     return resl
 def searchwaypoint(name,icao_code,sect_code,airport):
-    conn = sqlite3.connect('F:/Users/18210/Documents/Prepar3D v4 Add-ons/FSLabs/NavData/CHN2014001.rom')
+    conn = sqlite3.connect('rom')
     c = conn.cursor()
     resw = c.execute("SELECT * FROM WAYPOINT where WAYPOINT_IDENT='"+name+"' AND SECT_CODE='"+sect_code+"' AND WAYPOINT_ICAO_CODE='"+icao_code+"' AND REGION_CODE='"+airport+"'")
     for roww in resw:
